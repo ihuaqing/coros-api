@@ -46,7 +46,7 @@ import { queryActivities, login, downloadActivityDetail, downloadFile } from './
 
   const { accessToken } = await login({ username, password });
 
-  const activities = await queryActivities(accessToken)({ size: 100, pageNumber: 1 });
+  const activities = await queryActivities(accessToken)({ size: 1, pageNumber: 1 });
   const activitiesToDownload = activities.dataList.map((it) => {
     const activityDate = parse(String(it.date), 'yyyymmdd', new Date());
 

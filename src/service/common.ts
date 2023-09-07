@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://teamapi.coros.com';
+export const BASE_URL = 'https://teamcnapi.coros.com';
 
 export type CorosResponse<T> = {
   apiCode: string;
