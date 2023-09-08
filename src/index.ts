@@ -53,12 +53,17 @@ import { queryActivities, login, downloadActivityDetail, downloadFile } from './
     return {
       labelId: it.labelId,
       sportType: it.sportType,
-      fileName: `${format(activityDate, 'yyyy-mm-dd')}_${it.name.trim()}_${it.labelId}.fit`,
+      fileName: `${format(activityDate, 'yyyy-mm-dd')}_${it.name.trim()}_${it.labelId}.tcx`,
     };
   });
 
   for (const { labelId, sportType, fileName } of activitiesToDownload) {
     const { fileUrl } = await downloadActivityDetail(accessToken)({ labelId, sportType });
-    await downloadFile(fileUrl, outDir, fileName);
+
+    // replace fit to tcx
+    var re = /fit/g;
+    var fileUrl_tcx = fileUrl.replace(re, "tcx");
+
+    await downloadFile(fileUrl_tcx, outDir, fileName);
   }
 })();
