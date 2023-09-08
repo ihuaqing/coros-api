@@ -58,12 +58,6 @@ import { queryActivities, login, downloadActivityDetail, downloadFile } from './
   });
 
   for (const { labelId, sportType, fileName } of activitiesToDownload) {
-    const { fileUrl } = await downloadActivityDetail(accessToken)({ labelId, sportType });
-
-    // replace fit to tcx
-    var re = /fit/g;
-    var fileUrl_tcx = fileUrl.replace(re, "tcx");
-
-    await downloadFile(fileUrl_tcx, outDir, fileName);
+    console.log(labelId);
   }
 })();
