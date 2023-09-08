@@ -2,7 +2,7 @@
 
 LABEL_ID=`node --loader ts-node/esm src/index.ts -u xiaojiehao123@gmail.com -p altercoros123 -o .`
 SOURCE_TCX=${LABEL_ID}.tcx
-OBJECT_DIR="../"
+OBJECT_DIR="/root/running_page/running_page/TCX_OUT/"
 
 # Delete old file, include tcx.1 style
 rm ${SOURCE_TCX}*
